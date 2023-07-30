@@ -1,5 +1,5 @@
 #include <cstdio>
-#include <map>
+#include <set>
 
 using namespace std;
 
@@ -7,18 +7,18 @@ int main(void){
     int N, M;
     int input;
     
-    map<int, bool> myMap;
+    set<int> S;
 
     scanf("%d", &N);
     for(int i = 0; i<N; i++){
         scanf("%d", &input);
-        myMap.insert(std::make_pair(input, true));
+        S.insert(input);
     }
 
     scanf("%d", &M);
     for(int i = 0; i<M; i++){
         scanf("%d", &input);
-        if(myMap.find(input) != myMap.end() )
+        if(S.find(input) != S.end() )
             printf("1 ");
         else
             printf("0 ");
