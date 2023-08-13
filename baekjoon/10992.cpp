@@ -7,6 +7,11 @@ int main(void)
     int N;
     cin >> N;
 
+    if(N==1){
+        cout << "*";
+        return 0;
+    }
+
     // top
     for(int i = 0; i<N-1; i++)
         cout << " ";
