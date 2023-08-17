@@ -12,15 +12,16 @@ sum:    10   6  9  10 15 21 -16  12  33  32
 answer: 10   10 10 10 15 21  21  21  33  33
 
 <case 2>
-input:  -1 -2 -3 -4 -5
-sum:    -1 -3 -5             
-answer: -1                
+input:  -1 -2 -3
+sum:    -1 -3 -5
+answer: -1 -1 -1
 
 <case 3>
 input:  -1 -2 5 -4 -5
 sum:    -1 -3 5  1 -4
 answer: -1 -1 5  5  5
 
+시간복잡도: O(n)
  */
 #include <iostream>
 #include <vector>
