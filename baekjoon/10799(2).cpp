@@ -1,4 +1,8 @@
-// stack 없이 구현해도 될 것 같아서, 그냥 int 변수로 씀.
+/* 
+date: 0920
+분야: stack
+- stack 없이 구현해도 될 것 같아서, 그냥 int 변수로 씀.
+*/
 #include <iostream>
 
 using namespace std;

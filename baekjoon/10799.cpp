@@ -1,3 +1,7 @@
+/* 
+date: 0920
+분야: stack
+*/
 #include <iostream>
 #include <stack>
 
