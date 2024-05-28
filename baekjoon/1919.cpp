@@ -1,3 +1,7 @@
+/* 
+date: 24.05.28
+분야: 배열
+ */
 #include <bits/stdc++.h>
 
 using namespace std;
