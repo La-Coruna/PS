@@ -19,7 +19,7 @@ int main(void){
         bool isBalanced = true;
 
         for(char a: input){
-            if(a == '(')
+            if(a == '(' || a == '[')
                 s.push(a);
             else if(a == ')'){
                 if(s.empty() || s.top() != '('){
@@ -28,12 +28,10 @@ int main(void){
                 }
                 s.pop();
             }
-            else if(a == '[')
-                s.push(a);
             else if(a == ']'){
                 if(s.empty() || s.top() != '['){
-                        isBalanced = false;
-                        break;
+                    isBalanced = false;
+                    break;
                 }
                 s.pop();
             }
