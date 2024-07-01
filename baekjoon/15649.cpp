@@ -5,15 +5,17 @@
  */
 #include <bits/stdc++.h>
 using namespace std;
-int arr[10];
-int issued[10];
 int N, M;
+int arr[10];
+bool issued[10];
+
 void func(int k){
     if(k == M){
-        for(int i = 0; i < M; i++){
+        for(int i = 0; i < k; i++){
             cout << arr[i] << ' ';
         }
         cout << '\n';
+        return;
     }
     for(int i = 1; i <= N; i++){
         if(issued[i]) continue;
@@ -22,6 +24,7 @@ void func(int k){
         func(k+1);
         issued[i] = false;
     }
+    return;
 }
 
 
