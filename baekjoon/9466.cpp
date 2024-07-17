@@ -24,18 +24,11 @@ int main(void){
             vis[i] = i;
             while(!Q.empty()){
                 int next = arr[Q.front()]; Q.pop();
-                // vis가 i인 팀이 생성됨.
-                if(vis[next] == i){
-                    // vis가 i인 팀이 딱 떨어진 경우.
-                    if(next == i) continue;
-                    // 그렇지 않은 경우, i부터 팀이 못되는 사람을 찾음.
-                    for(int j = i; j != next; j=arr[j]){
-                        answer++;
-                    }
-                    continue;
-                }
-                // vis가 i인 팀이 생성 불가.
-                else if (vis[next] != 0){
+                // vis가 i인 팀이 딱 떨어진 경우.
+                if(vis[next] == i && next == i) continue;
+
+                // 그렇지 않은 경우, i부터 팀이 못되는 사람을 찾음.
+                else if (vis[next] != 0){ // circle이 아닌 부분을 짤라서 개수를 셈.
                     for(int j = i; j != next; j=arr[j]){
                         answer++;
                     }
