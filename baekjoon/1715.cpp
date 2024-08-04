@@ -27,7 +27,7 @@ int main(void){
         Q.push(input);
     }
 
-    long answer = 0;
+    int answer = 0;
     while(!Q.empty()){
         int left_card, right_card, merged_card;
         left_card = Q.top(); Q.pop();
