@@ -2,7 +2,7 @@
 [효율적인 해킹]
 - date: 24.08.14
 - 분류: Graph
-- 풀이: BFS
+- 풀이: BFS + 영역 크기 구하기
  */
 #include <bits/stdc++.h>
 using namespace std;
