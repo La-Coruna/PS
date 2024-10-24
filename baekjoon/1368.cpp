@@ -1,14 +1,12 @@
 /* 
-[최소 스패닝 트리]
-- date: 24.10.23
-- 분류: Graph, MST
+[물대기]
+- date: 24.10.24
+- 분류: Graph, MST, Graph Modeling
  */
 #include <bits/stdc++.h>
 using namespace std;
 
-tuple<int,int,int> edge[100'000];
-
-vector<int> p(10'001, -1);
+vector<int> p(301, -1);
 
 int find(int x){
     if(p[x] < 0) return x;
@@ -24,28 +22,36 @@ bool unionSets(int x, int y){
     return true;
 }
 
+vector<tuple<int,int,int>> edges;
+
 int main(void){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int V, E;
-    cin >> V >> E;
-    for(int i = 0; i < E; i++){
-        int u, v, c;
-        cin >> u >> v >> c;
-        edge[i] = {c,u,v};
+    int N, c;
+    cin >> N;
+    for(int i = 1; i <= N; i++){
+        cin >> c;
+        edges.emplace_back(c,0,i);
+    }
+    for(int i = 1; i <= N; i++){
+        for(int j = 1; j <= N; j++){
+            cin >> c;
+            if(j <= i) continue;
+            edges.emplace_back(c,i,j);;
+        }
     }
 
-    sort(edge, edge+E);
+    sort(edges.begin(), edges.end());
     int cnt = 0;
     int ans = 0;
-    for(int i = 0; i < E; i++){
+    for(auto e : edges){
         int c, u, v;
-        tie(c, u, v) = edge[i];
+        tie(c, u, v) = e;
         if(!unionSets(u,v)) continue;
         ans += c;
         cnt++;
-        if(cnt == V-1) break;
+        if(cnt == N) break;
     }
 
     cout << ans;
