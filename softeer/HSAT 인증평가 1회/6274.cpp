@@ -1,7 +1,7 @@
 /*
 [HSAT 1회 정기 코딩 인증평가 기출] 안전운전을 도와줄 차세대 지능형 교통시스템
 - date: 24.10.07
-- url: https://softeer.ai/class/devcrew/study/resource/detail/description/6274?id=280&resourceId=329
+- url: https://softeer.ai/practice/6274
 */
 #include <bits/stdc++.h>
 using namespace std;

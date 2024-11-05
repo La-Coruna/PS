@@ -1,7 +1,7 @@
 /*
 [HSAT 1회 정기 코딩 인증평가 기출] 로봇이 지나간 경로
 - date: 24.10.08
-- url: https://softeer.ai/class/devcrew/study/resource/detail/description/6275?id=280&resourceId=329
+- url: https://softeer.ai/practice/6275
 */
 
 #include <bits/stdc++.h>
