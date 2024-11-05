@@ -1,7 +1,7 @@
 /*
 [순서대로 방문하기] 
 - date: 24.10.28
-- url: https://softeer.ai/practice/6251
+- url: https://softeer.ai/practice/6246
 */
 #include <bits/stdc++.h>
 using namespace std;
