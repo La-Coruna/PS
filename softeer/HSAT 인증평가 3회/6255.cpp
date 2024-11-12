@@ -1,6 +1,6 @@
 /*
 [플레이페어 암호] 
-- date: 24.11.09
+- date: 24.11.12
 - url: https://softeer.ai/practice/6255
 */
 
