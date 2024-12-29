@@ -2,7 +2,7 @@
 [21년 재직자 대회 예선] 전광판
 - date: 24.09.10
 - tag: simulation    
-- url: https://softeer.ai/class/devcrew/study/resource/detail/description/6268?id=280&resourceId=328
+- url: https://softeer.ai/practice/6268
     0
 1        2
     3
