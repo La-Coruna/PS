@@ -22,8 +22,6 @@ void flood(){
 	for (int t = 1; ; t++) {
 		bool cantFloodMore = true;
 
-		queue<pair<int, int>> Q;
-
 		for (int i = 0; i < R; i++) {
 			for (int j = 0; j < C; j++) {
 				if (water[i][j] != t) // 가장 자리에 있는 물만 되게. 가장 자리 물은 t랑 같은 값일 거임.
