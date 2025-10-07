@@ -1,52 +1,53 @@
 /* 
 [치킨 배달]
 - date: 24.09.07
+- date2: 25.02.04
 - 분류: Backtracking
  */
 #include <bits/stdc++.h>
 using namespace std;
-
 #define X first
 #define Y second
 
-int main(void){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+int N, M, board[51][51];
+vector<pair<int, int>> houses;
+vector<pair<int, int>> chickens;
 
-    int N, M, input, min_city_chk_dst = 0x7fffffff;
-    vector<pair<int,int>> house;
-    vector<pair<int,int>> chicken;
-    vector<bool> isFired;
-    cin >> N >> M;
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < N; j++){
-            cin >> input;
-            if(input == 1) house.emplace_back(i,j);
-            else if(input == 2) chicken.emplace_back(i,j);
-        }
-    }
+int main(void) {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 
-    int c = chicken.size();
-    while(isFired.size() != M)
-        isFired.emplace_back(0);
-    while(isFired.size() != c)
-        isFired.emplace_back(1);
-    
-    do{
-        int city_chk_dst = 0;
-        for(auto h : house){
-            int h_chk_dst = 0x7fffffff;
-            for(int i = 0; i < c; i++){
-                if(isFired[i]) continue;
-                int dist = abs(h.X - chicken[i].X) + abs(h.Y - chicken[i].Y);
-                h_chk_dst = min(h_chk_dst, dist);
-            }
-            city_chk_dst += h_chk_dst;
-        }
-        min_city_chk_dst = min(city_chk_dst, min_city_chk_dst);
-    } while(next_permutation(isFired.begin(), isFired.end()));
+	cin >> N >> M;
+	for (int i = 1; i <= N; i++) {
+		for (int j = 1; j <= N; j++) {
+			cin >> board[i][j];
+			if (board[i][j] == 1) houses.emplace_back(i,j);
+			else if (board[i][j] == 2) chickens.emplace_back(i,j);
+		}
+	}
 
-    cout << min_city_chk_dst;
+	// M개만 폐업 안함
+	vector<bool> isClosed(M, 0);
+	isClosed.resize(chickens.size(), 1);
 
-    return 0;
+	int minCityDiff = 0x7fffffff;
+	do {
+		int cityDiff = 0;
+		for (auto h : houses) {
+			int diff = 0x7fffffff;
+			// 각 치킨집과 거리를 계산해 치킨거리 갱신
+			for (int i = 0; i < chickens.size(); i++) {
+				if (isClosed[i]) continue;
+				diff = min(diff, abs(h.X - chickens[i].X) + abs(h.Y - chickens[i].Y));
+			}
+			cityDiff += diff;
+		}
+
+		minCityDiff = min(minCityDiff, cityDiff);
+
+	} while (next_permutation(isClosed.begin(), isClosed.end()));
+
+	cout << minCityDiff;
+
+	return 0;
 }
