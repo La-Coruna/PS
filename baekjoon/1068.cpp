@@ -1,0 +1,66 @@
+/*
+[트리] 
+- date: 26.01.14
+
+- N = 50
+
+- 1. child배열로 트리 구현
+- 2. target 삭제 (target의 child 삭제 및 target의 par에서 삭제)
+- 3. root에서 dfs해서 leaf node 카운트
+
+- edge case
+    - 1. leaf node 삭제
+    - 2. root 삭제
+    - 3. root만 남은 경우
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int leaf_node_cnt = 0;
+vector<int> child[50];
+
+void dfs(int cur){
+    if(child[cur].size() == 0) {
+        leaf_node_cnt++;
+        return;
+    }
+    for(int& nxt : child[cur]){
+        dfs(nxt);
+    }
+}
+
+int main(void){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+    int N, root, target;
+    int par[50];
+
+    // 1. input 입력
+    cin >> N;
+    for(int i = 0; i < N; i++){
+        cin >> par[i];
+        if(par[i] == -1){
+            root = i;
+            continue;
+        }
+        child[par[i]].emplace_back(i);
+    }
+    cin >> target;
+    
+    // 2. target 지우기
+    // 2-1. target의 child 지우기
+    child[target].clear();
+
+    // 2-2. target의 par에서 target 지우기
+    int target_par = par[target];
+    auto it = find(child[target_par].begin(), child[target_par].end(), target);
+    if(it != child[target_par].end()) child[target_par].erase(it);
+
+    // 3. dfs 돌며 leaf node 찾기
+    if(root != target) dfs(root);
+
+    cout << leaf_node_cnt;
+
+    return 0;
+}
